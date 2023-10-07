@@ -2,6 +2,7 @@ package io.github._4drian3d.simplerepair.sponge;
 
 import com.google.inject.Inject;
 import io.leangen.geantyref.TypeToken;
+import net.kyori.adventure.text.Component;
 import org.spongepowered.api.command.Command;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.parameter.Parameter;
@@ -31,24 +32,27 @@ public class SimpleRepair {
                 .addParameter(percentageParameter)
                 .executor(context -> {
                     final ServerPlayer player = context.cause().first(ServerPlayer.class).orElseThrow();
-                    repairOnHand(player, context.one(handParameter).orElseGet(HandTypes.MAIN_HAND), context.one(percentageParameter).orElse(100));
-                    return CommandResult.success();
+                    final HandType handType = context.one(handParameter).orElseGet(HandTypes.MAIN_HAND);
+                    final int percentage = context.one(percentageParameter).orElse(100);
+
+                    return repairOnHand(player, handType, percentage);
                 })
                 .executionRequirements(context -> context.cause().root() instanceof ServerPlayer)
                 .build();
         event.register(container, command, "simplerepair", "repair");
     }
 
-    private void repairOnHand(ServerPlayer player, HandType hand, int percentage) {
+    private CommandResult repairOnHand(ServerPlayer player, HandType hand, int percentage) {
         final ItemStack item = player.itemInHand(hand);
         final int maxDurability = item.get(Keys.MAX_DURABILITY).orElse(0);
         final int itemDurability = item.get(Keys.ITEM_DURABILITY).orElse(0);
 
         if (maxDurability == 0 || maxDurability == itemDurability) {
-            return;
+            return CommandResult.error(Component.text(""));
         }
         final int newDurability = itemDurability + calculateDurability(percentage, maxDurability);
         item.offer(Keys.ITEM_DURABILITY, Math.min(newDurability, maxDurability));
+        return CommandResult.success();
     }
 
     private int calculateDurability(double percentage, double durability) {

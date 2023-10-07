@@ -71,22 +71,31 @@ public final class RepairCommand extends Command implements PluginIdentifiableCo
         final ItemStack item = player.getInventory().getItem(hand);
         final short maxDurability = item.getType().getMaxDurability();
         if (maxDurability != 0) {
-            item.editMeta(Damageable.class, meta -> {
+            final boolean edited = item.editMeta(Damageable.class, meta -> {
                 if (!meta.hasDamage()) {
+                    // item no se puede reparar
                     return;
                 }
                 if (percentage == 100) {
+                    // item reparado
                     meta.setDamage(0);
                     return;
                 }
                 final int damage = meta.getDamage();
                 if (damage == 0) {
+                    // item ya reparado
                     return;
                 }
                 final int calculatedDamage = calculateDamage(percentage, maxDurability);
                 final int newDamage = damage - calculatedDamage;
                 meta.setDamage(Math.max(newDamage, 0));
+                // item reparado
             });
+            if (!edited) {
+                // item no se puede reparar
+            }
+        } else {
+            // item no se puede reparar
         }
     }
 

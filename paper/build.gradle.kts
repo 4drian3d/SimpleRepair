@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     compileOnly(libs.paper)
-    implementation(projects.itemrepairCommon)
+    implementation(projects.simplerepairCommon)
 }
 
 tasks {
@@ -33,7 +33,7 @@ tasks {
 }
 
 paper {
-    name = "ItemRepair"
+    name = "SimpleRepair"
     main = "io.github._4drian3d.simplerepair.paper.SimpleRepair"
     loader = "io.github._4drian3d.simplerepair.paper.RepairLoader"
     authors = listOf("4drian3d")

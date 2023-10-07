@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.itemrepairCommon)
+    implementation(projects.simplerepairCommon)
 }
 
 sponge {

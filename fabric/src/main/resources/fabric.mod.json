@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "simplerepair",
+  "version": "${version}",
+  "name": "SimpleRepair",
+  "description": "Simple Repair",
+  "authors": [
+    "4drian3d"
+  ],
+  "contact": {
+    "homepage": "https://github.com/4drian3d/SimpleRepair",
+    "sources": "https://github.com/4drian3d/SimpleRepair"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "server": [
+      "io.github._4drian3d.simplerepair.fabric.server.SimpleRepairFabric"
+    ],
+    "client": [
+      "io.github._4drian3d.simplerepair.fabric.client.SimpleRepairFabric"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "minecraft": ">1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "miniplaceholders"
+  }
+}
