@@ -1,4 +1,4 @@
 dependencies {
-    compileOnly(libs.configurate)
+    compileOnly(libs.configurate.hocon)
     compileOnly(libs.slf4j)
 }
