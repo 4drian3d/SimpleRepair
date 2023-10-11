@@ -1,5 +1,6 @@
 package io.github._4drian3d.simplerepair.common.configuration;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
@@ -40,7 +41,7 @@ public final class ConfigurationContainer {
         });
     }
 
-    public Configuration get() {
+    public @NotNull Configuration get() {
         return this.config.get();
     }
 

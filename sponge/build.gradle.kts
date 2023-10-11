@@ -8,6 +8,7 @@ plugins {
 
 dependencies {
     implementation(projects.simplerepairCommon)
+    compileOnly(libs.slf4j)
 }
 
 sponge {

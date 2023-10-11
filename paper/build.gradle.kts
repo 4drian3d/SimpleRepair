@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly(libs.paper)
+    compileOnly(libs.paper.api)
     implementation(projects.simplerepairCommon)
 }
 

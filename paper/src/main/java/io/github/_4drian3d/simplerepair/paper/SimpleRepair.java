@@ -3,7 +3,8 @@ package io.github._4drian3d.simplerepair.paper;
 import io.github._4drian3d.simplerepair.common.configuration.ConfigurationContainer;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SimpleRepair extends JavaPlugin {
+public final class SimpleRepair extends JavaPlugin {
+
     private ConfigurationContainer configurationContainer;
 
     @Override
@@ -15,4 +16,5 @@ public class SimpleRepair extends JavaPlugin {
     ConfigurationContainer configurationContainer() {
         return this.configurationContainer;
     }
+
 }

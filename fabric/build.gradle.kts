@@ -12,6 +12,7 @@ dependencies {
     modImplementation(libs.fabric.api)
     shadeModule(libs.configurate.hocon)
     includeDependency(libs.luckopermissionsapi)
+    includeDependency(libs.adventure.platform.fabric)
     shadeModule(projects.simplerepairCommon)
 }
 
