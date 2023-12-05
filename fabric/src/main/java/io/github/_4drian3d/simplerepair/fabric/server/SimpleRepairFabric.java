@@ -61,7 +61,7 @@ public final class SimpleRepairFabric implements ModInitializer, RepairLogic<Ser
                                     RepairResult result = repairItem(requireNonNull(context.getSource().getPlayer()),
                                             HANDS.get(context.getArgument("hand", String.class).toUpperCase(Locale.ROOT)),
                                             DoubleArgumentType.getDouble(context, "percentage"));
-                                    this.sendResult(context.getSource(), result, container.get());
+                                    this.sendResult(context.getSource(), result, requireNonNull(container).get());
                                     return Command.SINGLE_SUCCESS;
                                 })
                         )
@@ -70,13 +70,13 @@ public final class SimpleRepairFabric implements ModInitializer, RepairLogic<Ser
                                     requireNonNull(context.getSource().getPlayer()),
                                     HANDS.get(context.getArgument("hand", String.class).toUpperCase(Locale.ROOT)),
                                     100);
-                            this.sendResult(context.getSource(), result, container.get());
+                            this.sendResult(context.getSource(), result, requireNonNull(container).get());
                             return Command.SINGLE_SUCCESS;
                         })
                 )
                 .executes(context -> {
                     RepairResult result = repairItem(requireNonNull(context.getSource().getPlayer()), InteractionHand.MAIN_HAND, 100);
-                    this.sendResult(context.getSource(), result, container.get());
+                    this.sendResult(context.getSource(), result, requireNonNull(container).get());
                     return Command.SINGLE_SUCCESS;
                 });
 
