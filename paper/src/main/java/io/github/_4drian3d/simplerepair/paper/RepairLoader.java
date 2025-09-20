@@ -8,16 +8,17 @@ import org.eclipse.aether.graph.Dependency;
 import org.eclipse.aether.repository.RemoteRepository;
 import org.jetbrains.annotations.NotNull;
 
-public class RepairLoader implements PluginLoader {
+@SuppressWarnings("UnstableApiUsage")
+public final class RepairLoader implements PluginLoader {
     @Override
     public void classloader(@NotNull PluginClasspathBuilder classpathBuilder) {
         final MavenLibraryResolver resolver = new MavenLibraryResolver();
 
         final RemoteRepository mavenCentral = new RemoteRepository
-                .Builder("central", "default", "https://repo1.maven.org/maven2/")
+                .Builder("central", "default", "https://repo.papermc.io/repository/maven-public/")
                 .build();
         final Dependency configurateHocon = new Dependency(
-                new DefaultArtifact("org.spongepowered:configurate-hocon:4.1.2"),
+                new DefaultArtifact("org.spongepowered:configurate-hocon:4.2.0"),
                 null
         );
 
