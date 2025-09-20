@@ -56,7 +56,7 @@ public final class SimpleRepairFabric implements ModInitializer, RepairLogic<Ser
                 )
                 .then(argument("hand", StringArgumentType.word())
                         .suggests((ctx, builder) -> builder.suggest("MAIN_HAND").suggest("OFF_HAND").buildFuture())
-                        .then(argument("percentage", DoubleArgumentType.doubleArg())
+                        .then(argument("percentage", DoubleArgumentType.doubleArg(1, 100))
                                 .executes(context -> {
                                     RepairResult result = repairItem(requireNonNull(context.getSource().getPlayer()),
                                             HANDS.get(context.getArgument("hand", String.class).toUpperCase(Locale.ROOT)),
