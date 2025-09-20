@@ -7,23 +7,22 @@ pluginManagement {
 //    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
-//        mavenCentral()
+        mavenCentral()
         maven("https://maven.fabricmc.net/")
-//        maven("https://maven.quiltmc.org/repository/release/")
     }
 }
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://repo.papermc.io/repository/maven-public/")
     }
 }
 
 plugins {
-    id("fabric-loom") version "1.4.1"
-    id("org.spongepowered.gradle.plugin") version "2.1.1"
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
+    id("fabric-loom") version "1.11.8"
+    id("org.spongepowered.gradle.plugin") version "2.3.0"
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 arrayOf(
