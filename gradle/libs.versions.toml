@@ -3,14 +3,14 @@ metadata.format.version = "1.1"
 [versions]
 
 # CompileOnly dependencies
-paper = "1.21.8-R0.1-SNAPSHOT"
-minecraft = "1.21.8"
+paper = "1.21.10-R0.1-SNAPSHOT"
+minecraft = "1.21.10"
 
-fabric-api = "0.133.4+1.21.8"
-fabric-loader = "0.14.23"
+fabric-api = "0.135.0+1.21.10"
+fabric-loader = "0.17.3"
 
-adventure = "4.24.0"
-adventurefabric = "6.6.0"
+adventure = "4.25.0"
+adventurefabric = "6.7.0"
 
 configurate = "4.2.0"
 
