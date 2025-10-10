@@ -10,7 +10,7 @@ dependencies {
     mappings(loom.officialMojangMappings())
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)
-    shadeModule(libs.configurate.hocon)
+    includeDependency(libs.configurate.hocon)
     includeDependency(libs.luckopermissionsapi)
     includeDependency(libs.adventure.platform.fabric)
     shadeModule(projects.simplerepairCommon)
