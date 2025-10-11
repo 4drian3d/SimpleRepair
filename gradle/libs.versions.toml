@@ -37,7 +37,7 @@ slf4j = "org.slf4j:slf4j-api:2.0.17"
 configurate-api = { module = "org.spongepowered:configurate-core", version.ref = "configurate" }
 configurate-hocon = { module = "org.spongepowered:configurate-hocon", version.ref = "configurate" }
 
-annotations = "org.jetbrains:annotations:24.0.1"
+annotations = "org.jetbrains:annotations:26.0.2-1"
 
 [plugins]
 
