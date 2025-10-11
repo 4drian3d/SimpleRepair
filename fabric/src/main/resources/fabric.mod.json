@@ -14,8 +14,11 @@
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "io.github._4drian3d.simplerepair.fabric.server.SimpleRepairFabric"
+    "server": [
+      "io.github._4drian3d.simplerepair.fabric.server.SimpleRepairServer"
+    ],
+    "client": [
+      "io.github._4drian3d.simplerepair.fabric.client.SimpleRepairClient"
     ]
   },
   "depends": {

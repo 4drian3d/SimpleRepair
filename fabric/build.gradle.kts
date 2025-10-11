@@ -26,6 +26,17 @@ fun DependencyHandlerScope.includeDependency(dependency: Any) {
     include(dependency)
 }
 
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        create("simplerepair") {
+            sourceSet("main")
+            sourceSet("client")
+        }
+    }
+}
+
 tasks {
     processResources {
         filteringCharset = Charsets.UTF_8.name()
