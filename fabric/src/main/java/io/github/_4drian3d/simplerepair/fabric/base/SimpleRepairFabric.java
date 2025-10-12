@@ -25,7 +25,7 @@ public abstract class SimpleRepairFabric implements RepairLogic<Player, Interact
       "MAIN_HAND", InteractionHand.MAIN_HAND,
       "OFF_HAND", InteractionHand.OFF_HAND
   );
-  public static final ConfigurationContainer container = ConfigurationContainer.load(
+  protected final ConfigurationContainer container = ConfigurationContainer.load(
       LOGGER, FabricLoader.getInstance().getConfigDir(), "simplerepair"
   );
 
