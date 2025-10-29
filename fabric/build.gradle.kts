@@ -3,20 +3,24 @@ plugins {
     alias(libs.plugins.shadow)
 }
 
-val shade: Configuration by configurations.creating
+val shade: Configuration by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+}
 
 dependencies {
     minecraft(libs.minecraft)
     mappings(loom.officialMojangMappings())
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)
-    includeDependency(libs.configurate.hocon)
+    modImplementation(libs.adventure.platform.fabric)
+
+    shadeDependency(projects.simplerepairCommon)
+    shadeDependency(libs.configurate.hocon)
     includeDependency(libs.luckopermissionsapi)
-    includeDependency(libs.adventure.platform.fabric)
-    shadeModule(projects.simplerepairCommon)
 }
 
-fun DependencyHandlerScope.shadeModule(dependency: Any) {
+fun DependencyHandlerScope.shadeDependency(dependency: Any) {
     shade(dependency)
     implementation(dependency)
 }
@@ -28,7 +32,6 @@ fun DependencyHandlerScope.includeDependency(dependency: Any) {
 
 loom {
     splitEnvironmentSourceSets()
-
     mods {
         create("simplerepair") {
             sourceSet("main")
@@ -40,17 +43,24 @@ loom {
 tasks {
     processResources {
         filteringCharset = Charsets.UTF_8.name()
+        inputs.properties("version" to project.version)
         filesMatching("fabric.mod.json") {
             expand("version" to project.version)
         }
     }
     remapJar {
-        inputFile.set(shadowJar.get().archiveFile)
+        dependsOn(shadowJar)
+        inputFile.set(shadowJar.flatMap { it.archiveFile })
         archiveFileName.set("SimpleRepair-Fabric-${project.version}.jar")
         destinationDirectory.set(file("${project.rootDir}/build"))
     }
     shadowJar {
+        from(sourceSets.main.get().output)
+        from(sourceSets.named("client").get().output)
         configurations = listOf(shade)
+        relocate("org.spongepowered.configurate", "io.github._4drian3d.simplerepair.libs.configurate")
+        relocate("io.leangen.geantyref", "io.github._4drian3d.simplerepair.libs.geantyref")
+        relocate("net.kyori.option", "io.github._4drian3d.simplerepair.libs.option")
     }
 }
 
