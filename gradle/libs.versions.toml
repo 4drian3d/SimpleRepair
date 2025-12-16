@@ -7,7 +7,7 @@ paper = "1.21.10-R0.1-SNAPSHOT"
 minecraft = "1.21.10"
 
 fabric-api = "0.135.0+1.21.10"
-fabric-loader = "0.18.2"
+fabric-loader = "0.18.3"
 
 adventure = "4.25.0"
 adventurefabric = "6.8.0"
