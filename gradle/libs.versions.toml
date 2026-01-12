@@ -3,10 +3,10 @@ metadata.format.version = "1.1"
 [versions]
 
 # CompileOnly dependencies
-paper = "1.21.10-R0.1-SNAPSHOT"
-minecraft = "1.21.10"
+paper = "1.21.11-R0.1-SNAPSHOT"
+minecraft = "1.21.11"
 
-fabric-api = "0.135.0+1.21.10"
+fabric-api = "0.141.1+1.21.11"
 fabric-loader = "0.18.4"
 
 adventure = "4.26.1"
@@ -26,7 +26,7 @@ paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "pap
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api" }
 fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
-luckopermissionsapi = { group = "me.lucko", name = "fabric-permissions-api", version = "0.5.0" }
+luckopermissionsapi = { group = "me.lucko", name = "fabric-permissions-api", version = "0.6.1" }
 
 adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
 adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version.ref = "adventure" }

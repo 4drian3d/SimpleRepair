@@ -9,6 +9,7 @@ import io.github._4drian3d.simplerepair.fabric.base.SimpleRepairFabric;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.server.permissions.PermissionLevel;
 import net.minecraft.world.InteractionHand;
 
 import java.util.Locale;
@@ -51,6 +52,6 @@ public final class SimpleRepairServer extends SimpleRepairFabric implements Dedi
   }
 
   private Predicate<CommandSourceStack> hasPermission(final String permission) {
-    return src -> src.isPlayer() && Permissions.check(src, permission, 2);
+    return src -> src.isPlayer() && Permissions.check(src, permission, PermissionLevel.GAMEMASTERS);
   }
 }
