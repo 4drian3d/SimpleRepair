@@ -44,4 +44,4 @@ annotations = "org.jetbrains:annotations:26.0.2-1"
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runtask" }
 pluginyml-paper = { id = "net.minecrell.plugin-yml.paper", version = "0.6.0" }
-idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.4" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.4.1" }
