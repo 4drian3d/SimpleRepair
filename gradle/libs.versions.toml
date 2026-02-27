@@ -15,7 +15,7 @@ adventurefabric = "6.8.0"
 configurate = "4.2.0"
 
 # Gradle Plugins
-shadow = "9.3.1"
+shadow = "9.3.2"
 runtask= "3.0.2"
 
 [libraries]
