@@ -9,7 +9,7 @@ minecraft = "1.21.11"
 fabric-api = "0.141.1+1.21.11"
 fabric-loader = "0.19.3"
 
-adventure = "5.0.0"
+adventure = "5.2.0"
 adventurefabric = "6.8.0"
 
 configurate = "4.2.0"
