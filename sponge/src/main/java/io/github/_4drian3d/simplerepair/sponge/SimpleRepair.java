@@ -48,14 +48,16 @@ public final class SimpleRepair implements RepairLogic<ServerPlayer, HandType> {
         final Parameter.Value<HandType> handParameter = Parameter.registryElement(TypeToken.get(HandType.class), RegistryTypes.HAND_TYPE)
             .requiredPermission("simplerepair.use.handtype")
             .key("hand")
+            .optional()
             .build();
         final Parameter.Value<Double> percentageParameter = Parameter.doubleNumber()
             .requiredPermission("simplerepair.use.percentage")
             .key("percentage")
+            .optional()
             .build();
         final Command.Parameterized command = Command.builder()
-                .permission("simplerepair.use")
-                .executionRequirements(context -> context.cause().root() instanceof ServerPlayer)
+                .executionRequirements(context -> context.cause().root() instanceof ServerPlayer player
+                    && player.hasPermission("simplerepair.use"))
                 .addParameter(handParameter)
                 .addParameter(percentageParameter)
                 .executor(context -> {
