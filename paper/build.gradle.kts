@@ -27,7 +27,8 @@ tasks {
         }
     }
     runServer {
-        minecraftVersion("1.21.10")
+        minecraftVersion("26.2")
+        jvmArgs("-Dcom.mojang.eula.agree=true")
     }
 }
 
@@ -39,5 +40,5 @@ paper {
     authors = listOf("4drian3d")
 
     foliaSupported = true
-    apiVersion = "1.21"
+    apiVersion = "26.1"
 }

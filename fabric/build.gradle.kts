@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom")
+    id("net.fabricmc.fabric-loom")
     alias(libs.plugins.shadow)
 }
 
@@ -10,10 +10,9 @@ val shade: Configuration by configurations.creating {
 
 dependencies {
     minecraft(libs.minecraft)
-    mappings(loom.officialMojangMappings())
-    modImplementation(libs.fabric.loader)
-    modImplementation(libs.fabric.api)
-    modImplementation(libs.adventure.platform.fabric)
+    implementation(libs.fabric.loader)
+    implementation(libs.fabric.api)
+    implementation(libs.adventure.platform.fabric)
 
     shadeDependency(projects.simplerepairCommon)
     shadeDependency(libs.configurate.hocon)
@@ -26,7 +25,7 @@ fun DependencyHandlerScope.shadeDependency(dependency: Any) {
 }
 
 fun DependencyHandlerScope.includeDependency(dependency: Any) {
-    modImplementation(dependency)
+    implementation(dependency)
     include(dependency)
 }
 
@@ -48,12 +47,6 @@ tasks {
             expand("version" to project.version)
         }
     }
-    remapJar {
-        dependsOn(shadowJar)
-        inputFile.set(shadowJar.flatMap { it.archiveFile })
-        archiveFileName.set("SimpleRepair-Fabric-${project.version}.jar")
-        destinationDirectory.set(file("${project.rootDir}/build"))
-    }
     shadowJar {
         from(sourceSets.main.get().output)
         from(sourceSets.named("client").get().output)
@@ -61,6 +54,8 @@ tasks {
         relocate("org.spongepowered.configurate", "io.github._4drian3d.simplerepair.libs.configurate")
         relocate("io.leangen.geantyref", "io.github._4drian3d.simplerepair.libs.geantyref")
         relocate("net.kyori.option", "io.github._4drian3d.simplerepair.libs.option")
+        archiveFileName.set("SimpleRepair-Fabric-${project.version}.jar")
+        destinationDirectory.set(file("${project.rootDir}/build"))
     }
 }
 
