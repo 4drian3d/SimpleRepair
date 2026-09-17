@@ -10,7 +10,7 @@ fabric-api = "0.160.2+26.3"
 fabric-loader = "0.19.5"
 
 adventure = "5.2.0"
-adventurefabric = "7.1.1"
+adventurefabric = "7.2.0"
 
 configurate = "4.2.0"
 
